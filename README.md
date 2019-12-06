@@ -8,7 +8,7 @@ This project will use Oracle Cloud Infrastructure to create a fully functional K
 * 3 Compute Instances
 * 1 Load Balancer
 
-All of these resources are included in the [Oracle 30 Day Trial](#https://www.oracle.com/cloud/free/).
+All of these resources are included in the [Oracle 30 Day Trial](https://www.oracle.com/cloud/free/).
 
 ### Pre-requisites
 
@@ -18,14 +18,14 @@ All of these resources are included in the [Oracle 30 Day Trial](#https://www.or
    * Enter a name for the policy and in 'Policy Statements' enter `Allow service OKE to manage all-resources in tenancy`
    * Click 'Create'
 2. Install Oracle Cloud Infrastructure Command Line Interface (oci_cli)
-   * [Follow directions for your system to install and configure oci_cli here](#https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliinstall.htm)
+   * [Follow directions for your system to install and configure oci_cli here](https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliinstall.htm)
    * Test your cli by entering `oci iam compartment list` which will return json with details about the compartments in your tenancy
 3. Install kubectl
-   * [Follow directions for your system to install and configure kubectl here](#https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+   * [Follow directions for your system to install and configure kubectl here](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
 ### Create a test Kubernetes cluster using OKE
 
-1. Log into your Oracle Cloud tenancy [here](#https://www.oracle.com/cloud/sign-in.html)
+1. Log into your Oracle Cloud tenancy [here](https://www.oracle.com/cloud/sign-in.html)
 2. In the menu, select 'Developer Services' > 'Container Clusters (OKE)'
 3. Click 'Create Cluster'
 4. Name your cluster as you see fit and leave all other options as their defaults
