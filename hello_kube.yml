@@ -1,0 +1,48 @@
+# Create a namespace to keep hello_kube seperate from other user projects
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: hello-kube-ns
+
+---
+
+# Create service to provision and manage load balancer
+kind: Service
+apiVersion: v1
+metadata:
+  name: hello-kube-service
+  annotations:
+    service.beta.kubernetes.io/oci-load-balancer-shape: 100Mbps
+  namespace: hello-kube-ns
+spec:
+  selector:
+    app: hello-kube
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 8000
+
+---
+
+# Deploy hello_kube
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: hello-kube-deployment
+  namespace: hello-kube-ns
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello-kube
+  # Template for pods to be created
+  template:
+    metadata:
+      labels:
+        # Matches deployment selector
+        app: hello-kube
+    spec:
+      containers:
+      - name: hello-kube
+        image: kcflynn/hello_kube
+        imagePullPolicy: Always
